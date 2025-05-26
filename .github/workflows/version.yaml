@@ -5,7 +5,7 @@ on:
 
 jobs:
   check-terraform-version:
-    runs-on: mini
+    runs-on: self-hosted
 
     steps:
       - name: 📥 Checkout repository
@@ -13,3 +13,6 @@ jobs:
 
       - name: 📌 Show Terraform version
         run: terraform version
+      
+      - name: Get AWS Identity
+        run: aws sts get-caller-identity 
