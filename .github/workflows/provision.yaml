@@ -1,0 +1,23 @@
+name: Terraform CI for Test Environment
+
+on:
+  workflow_dispatch:  
+ 
+
+jobs:
+  terraform:
+    name: Terraform Init, Plan and Apply
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        run: terraform plan -var=env/test/test.vars
+
+      - name: Terraform Apply
+        run: terraform apply -var=env/test/test.vars -auto-approve
