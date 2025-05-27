@@ -1,19 +1,29 @@
-name: Terraform Destroy for Test Environment
+name: Terraform Destroy for Test and Staging Environments
 
 on:
-  workflow_dispatch:  # Manual trigger from GitHub Actions UI
+  workflow_dispatch:  # Manual trigger
 
 jobs:
   terraform-destroy:
-    name: Terraform Destroy
+    name: Destroy Test and Staging
     runs-on: self-hosted
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Terraform Init
+      - name: Terraform Init (Test)
+        working-directory: env/test
         run: terraform init
 
-      - name: Terraform Destroy
-        run: terraform destroy -var-file=env/test/test.tfvars -auto-approve
+      - name: Terraform Destroy (Test)
+        working-directory: env/test
+        run: terraform destroy -var-file=test.tfvars -auto-approve
+
+      - name: Terraform Init (Staging)
+        working-directory: env/staging
+        run: terraform init
+
+      - name: Terraform Destroy (Staging)
+        working-directory: env/staging
+        run: terraform destroy -var-file=staging.tfvars -auto-approve
