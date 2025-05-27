@@ -3,7 +3,8 @@ module "mini_eks" {
      environment = var.common_variables["environment"]
      project_name = var.common_variables["project_name"]
      common_tags = var.common_variables["common_tags"]
-     vpc_cidr_block = var.common_variables["vpc_cidr_block"]
+     vpc_cidr_block = var.vpc["vpc_cidr_block"]
      
  
 }
+
