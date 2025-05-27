@@ -1,4 +1,4 @@
-name: Terraform CI for Test Environment
+name: Terraform CI for staging Environment
 
 on:
   workflow_dispatch:  
