@@ -4,4 +4,5 @@ variable "aws_region" {
   
 }
 variable "common_variables" {}
+
 variable "vpc" {}
