@@ -16,6 +16,6 @@ jobs:
         run: terraform init -backend-config=env/test/backend.tfvars
 
       - name: Terraform Destroy (Test)
-        run: terraform destroy -var-file=test.tfvars -auto-approve
+        run: terraform destroy -var-file=env/test/test.tfvars -auto-approve
 
     
