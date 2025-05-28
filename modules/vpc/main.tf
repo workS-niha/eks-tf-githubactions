@@ -130,12 +130,12 @@ resource "aws_route_table_association" "db-rt-a" {
 
 
 resource "aws_eip" "cost" {
-  count = var.enable_nat ? 0 : 1   
+  count = var.enable_nat ? 1 : 0   
   domain   = "vpc"
 }
 
 resource "aws_nat_gateway" "my_nat" {
-  count = var.enable_nat ? 0 : 1
+  count = var.enable_nat ? 1 : 0
   allocation_id = aws_eip.cost[count.index].id
   subnet_id     = aws_subnet.pub[0].id
 
