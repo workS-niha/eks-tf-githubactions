@@ -22,7 +22,7 @@ resource "aws_internet_gateway" "igw" {
 
    tags = merge(
    { 
-    Name = "${local.name}-vpc"
+    Name = "${local.name}-igw"
     },
     var.common_tags
   )
