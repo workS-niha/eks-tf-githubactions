@@ -7,7 +7,7 @@ module "mini_eks" {
 
      azs = var.vpc["azs"]
      public_subnet_cidr = var.vpc["public_subnet_cidr"]
-     private_subnet_cidr = var.vpc ["pri_subnet_cidr"]
+     private_subnet_cidr = var.vpc ["private_subnet_cidr"]
      db_subnet_cidr = var.vpc["db_subnet_cidr"]
      enable_nat = var.vpc["enable_nat"]
 }
