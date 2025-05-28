@@ -17,13 +17,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Terraform Init
-        working-directory: ./env
         run: terraform init
 
       - name: Terraform Plan
-        working-directory: ./env
-        run: terraform plan -var-file=test/test.tfvars
+        run: terraform plan -var-file=env/test/test.tfvars
 
       - name: Terraform Apply
         working-directory: ./env
-        run: terraform apply -var-file=test/test.tfvars -auto-approve
+        run: terraform apply -var-file=env/test/test.tfvars -auto-approve
