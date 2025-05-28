@@ -1,11 +1,11 @@
-name: Terraform Destroy for Test and Staging Environments
+name: Terraform Destroy for Test Environment
 
 on:
   workflow_dispatch:  # Manual trigger
 
 jobs:
   terraform-destroy:
-    name: Destroy Test and Staging
+    name: Destroy Test 
     runs-on: self-hosted
 
     steps:
