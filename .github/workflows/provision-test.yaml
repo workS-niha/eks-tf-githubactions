@@ -23,5 +23,4 @@ jobs:
         run: terraform plan -var-file=env/test/test.tfvars
 
       - name: Terraform Apply
-        working-directory: ./env
         run: terraform apply -var-file=env/test/test.tfvars -auto-approve
