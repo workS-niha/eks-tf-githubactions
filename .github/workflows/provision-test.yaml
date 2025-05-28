@@ -1,16 +1,14 @@
 name: Terraform CI for Test Environment
 
 on:
-  workflow_dispatch:  
+  workflow_dispatch:
 
 jobs:
   plan:
     name: Terraform Plan
     runs-on: self-hosted
-
     environment:
       name: test
-  
 
     steps:
       - name: Checkout code
@@ -22,12 +20,12 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -var-file=env/test/test.tfvars
 
-      
-    apply:
-    name: Terraform apply
+  apply:
+    name: Terraform Apply
     runs-on: self-hosted
     needs: plan
-
+    environment:
+      name: test
 
     steps:
       - name: Checkout code
@@ -35,7 +33,6 @@ jobs:
 
       - name: Terraform Init
         run: terraform init -backend-config=env/test/backend.tfvars
-
 
       - name: Terraform Apply
         run: terraform apply -var-file=env/test/test.tfvars -auto-approve
