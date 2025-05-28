@@ -24,6 +24,6 @@ output "pvtids" {
 
 output "aws_eip" {
   description = "aws elastic ip"
-  value = aws_eip.cost.id
+  value = aws_eip.cost[*].id
 }
 

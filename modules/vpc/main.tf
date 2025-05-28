@@ -157,12 +157,12 @@ resource "aws_route" "pub_internet" {
 
 resource "aws_route" "pvt-nat" {
   route_table_id            = aws_route_table.route-pvt.id
-  gateway_id = aws_internet_gateway.my_nat[0].id
+  gateway_id = aws_nat_gateway.my_nat[0].id
   destination_cidr_block   = "0.0.0.0/0"
 }
 
 resource "aws_route" "db-nat" {
   route_table_id            = aws_route_table.route-db.id
-  gateway_id = aws_internet_gateway.my_nat[0].id
+  gateway_id = aws_nat_gateway.my_nat[0].id
   destination_cidr_block   = "0.0.0.0/0"
 }
