@@ -21,22 +21,22 @@ variable "common_tags" {
 
 variable "public_subnet_cidr" {
   description = "cidr range for public subnets"
-  type = string 
+  type = list(string) 
 }
 
 variable "azs" {
     description = "availability zone for subnet"
-    type = string
+    type = list(string)
 }
 
 variable "private_subnet_cidr" {
   description = "cidr range for private subnets"
-  type = string 
+  type = list(string) 
 }
 
 variable "db_subnet_cidr" {
   description = "cidr range for db subnets"
-  type = string 
+  type = list(string) 
 }
 
 
