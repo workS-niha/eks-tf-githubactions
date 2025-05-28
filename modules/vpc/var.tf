@@ -42,5 +42,5 @@ variable "db_subnet_cidr" {
 
 variable "enable_nat" {
   description = "to enable nat gateway"
-  type = true
+  type = bool
 }

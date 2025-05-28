@@ -122,7 +122,7 @@ resource "aws_route_table_association" "pvt-rt-a" {
   route_table_id = aws_route_table.route-pvt.id
 } 
 
-resource "aws_route_table_association" "pvt-rt-a" {
+resource "aws_route_table_association" "db-rt-a" {
   count = length(aws_subnet.db)
   subnet_id      = aws_subnet.db[count.index].id
   route_table_id = aws_route_table.route-db.id
