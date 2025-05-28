@@ -27,8 +27,6 @@ jobs:
     name: Terraform apply
     runs-on: self-hosted
     needs: plan
-    environment:
-      name: test
 
 
     steps:
