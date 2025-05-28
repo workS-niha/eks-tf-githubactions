@@ -13,17 +13,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Terraform Init (Test)
-        working-directory: env/test
-        run: terraform init
+        run: terraform init -backend-config=env/test/backend.tfvars
 
       - name: Terraform Destroy (Test)
-        working-directory: env/test
         run: terraform destroy -var-file=test.tfvars -auto-approve
 
-      - name: Terraform Init (Staging)
-        working-directory: env/staging
-        run: terraform init
-
-      - name: Terraform Destroy (Staging)
-        working-directory: env/staging
-        run: terraform destroy -var-file=staging.tfvars -auto-approve
+    
